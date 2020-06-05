@@ -13,9 +13,14 @@ def get_indices_of_item_weights(weights, length, limit):
     
     # loop thru weights
     for w in weights:
+        # if the limit minus the current weight is in the dict,
         if (limit - w) in weights_dict:
+            # get the index of the current weight,
             current_ind = weights_dict[w]
+            # get the index of the limit minus 
+            # the current weight,
             found_ind = weights_dict[limit-w]
+            # figure out which one is the larger index,
             largest = current_ind if current_ind > found_ind else found_ind
             smallest = current_ind if current_ind < found_ind else found_ind
             return (largest, smallest)
